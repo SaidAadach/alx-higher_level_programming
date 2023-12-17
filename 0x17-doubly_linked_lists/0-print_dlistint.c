@@ -1,23 +1,45 @@
 #include "lists.h"
-/**
- * print_dlistint - prints all elements ofa linked list
- * @h: head of the list
- * Return: number of nodes
+
+/*
+ * File: 0-print_dlistint.c
+ * Author: Alex O. Arevalo T.
+ * email: 3915@holbertonschool.com
  */
+
+/**
+ * print_dlistint - Prints all the elements of a dlistint_t list.
+ * @h: The head of the dlistint_t list.
+ * Return: The number of nodes in the list.
+ */
+
 size_t print_dlistint(const dlistint_t *h)
 {
-size_t n = 0;
-const dlistint_t *temp = h;
+	size_t nodes = 0;
 
-if (h == NULL)
-{
-return (0);
+	while (h)
+	{
+		nodes++;
+		printf("%d\n", h->n);
+		h = h->next;
+
+	}
+
+	return (nodes);
 }
-while (temp)
-{
-printf("%d\n", temp->n);
-n++;
-temp = temp->next;
-}
-return (n);
-}
+
+/***
+ * Other solution
+ * size_t print_dlistint(const dlistint_t *h)
+ * {
+ *   size_t nodes;
+ *
+ *	 for (nodes = 0; h != NULL; nodes++)
+ *	 {
+ *		 printf("%d\n", h->n);
+ *		 h = h->next;
+ *
+ *   }
+ *
+ *   return (nodes);
+ * }
+ */
