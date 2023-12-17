@@ -1,17 +1,10 @@
 #include "lists.h"
 
-/*
- * File: 6-sum_dlistint.c
- * Author: Alex O. Arevalo T.
- * email: 3915@holbertonschool.com
- */
-
 /**
- * sum_dlistint - Sums all the data of a dlistint_t list.
- * @head: The head of the dlistint_t list.
- * Return: The sum of all the data.
+ * sum_dlistint - A function that sums The elements in the list
+ * @head: The pointer to head of the list
+ * Return: The sum of all elements in the list, or 0 if list is NULL
  */
-
 int sum_dlistint(dlistint_t *head)
 {
 	int sum = 0;
@@ -20,9 +13,6 @@ int sum_dlistint(dlistint_t *head)
 	{
 		sum += head->n;
 		head = head->next;
-
 	}
-
 	return (sum);
-
 }

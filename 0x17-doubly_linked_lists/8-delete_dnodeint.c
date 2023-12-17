@@ -1,58 +1,36 @@
 #include "lists.h"
-
-/*
- * File: 8-delete_dnodeint.c
- * Author: Alex O. Arevalo T.
- * email: 3915@holbertonschool.com
- */
+#include <stdlib.h>
 
 /**
- * delete_dnodeint_at_index - deletes a node at a specific index
- * @head: double pointer to the linked list.
- * @index: index at which to delete node.
+ * delete_dnodeint_at_index - A function that inserts a node at position.
+ * @h: The double pointer to the head.
+ * @index: The index to insert new node at.
  * Return: 1 on success, -1 on failure.
  */
-
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+int delete_dnodeint_at_index(dlistint_t **h, unsigned int index)
 {
-	dlistint_t *tmp, *next, *prev;
-	unsigned int c;
+	dlistint_t *temp = NULL;
+	unsigned int i = 0;
 
-	if (*head == NULL)
+	if (!h || !(*h))
+	{
 		return (-1);
-
-	for (tmp = *head, c = 0, prev = NULL; tmp && c < index; c++)
-	{
-		prev = tmp;
-		tmp = tmp->next;
-	}
-
-	if (tmp == NULL)
-		return (-1);
-
-	next = tmp->next;
-	if (prev == NULL)
-	{
-		free(tmp);
-		if (next != NULL)
-		{
-			next->prev = NULL;
-			*head = next;
-		}
-		else
-			*head = NULL;
-	}
-	else if (next == NULL)
-	{
-		prev->next = NULL;
-		free(tmp);
 	}
 	else
 	{
-		prev->next = next;
-		next->prev = prev;
-		free(tmp);
+		temp = *h;
+		while (index != i++ && temp)
+			temp = temp->next;
+		if (!temp)
+			return (-1);
+		if (temp->next)
+			temp->next->prev = temp->prev;
+		if (index == 0)
+			*h = temp->next;
+		else
+			temp->prev->next = temp->next;
+		free(temp);
+		return (1);
 	}
-
-	return (1);
+	return (-1);
 }

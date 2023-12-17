@@ -4,7 +4,7 @@
 #include "lists.h"
 
 /**
- * main - check the code
+ * main - check the code for Holberton School students.
  *
  * Return: Always EXIT_SUCCESS.
  */
@@ -21,7 +21,6 @@ int main(void)
 	{
 		dprintf(2, "Error: Can't malloc\n");
 		return (EXIT_FAILURE);
-
 	}
 	new->n = 9;
 	head->prev = new;
@@ -32,5 +31,4 @@ int main(void)
 	printf("-> %lu elements\n", n);
 	free(new);
 	return (EXIT_SUCCESS);
-
 }
