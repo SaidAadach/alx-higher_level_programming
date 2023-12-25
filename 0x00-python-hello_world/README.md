@@ -1,2 +1,1 @@
-# Hello World
-* 0-run-inline
+The README file for 0x00-python-hello_world
